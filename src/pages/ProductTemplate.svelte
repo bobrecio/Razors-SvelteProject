@@ -5,6 +5,7 @@
   import products from "../stores/defaultProduct";
   import Loading from "../components/Loading.svelte";
   import { link } from "svelte-routing";
+  import globalStore from "../stores/globalStore.js";
 
   $: product = $products.find(item => item.id == parseInt(id));
 </script>
@@ -26,7 +27,7 @@
         <p>{product.description}</p>
     </article>
     <button class="btn bt-primary btn-block" on:click="{() => { 
-        console.log(`Adding ${product.title} to cart`);
+        globalStore.toggleItem('cart',true);
     }}">
         add to cart
     </button>

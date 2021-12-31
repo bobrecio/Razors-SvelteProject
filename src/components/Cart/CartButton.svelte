@@ -1,9 +1,13 @@
+<script>
+  import globalStore from "../../stores/globalStore.js";
+
+</script>
 <!-- cart toggle -->
 <div class="btn-cart-container">
   <button
     class="btn-cart-toggle"
     on:click={() => {
-      console.log("cart items will show here");
+      globalStore.toggleItem('cart', true);
     }}
   >
     <i class="fas fa-cart-plus" />
