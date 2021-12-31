@@ -16,7 +16,7 @@
       {/each}
       </ul>
       <!-- nav logl -->
-      <a href="/" use:link class="nav-log big-log">
+      <a href="/" use:link class="nav-log big-logo">
         <img src="./assets/images/logo.svg" alt="razors logo" />
       </a>
       <!-- cart toggle -->
