@@ -7,15 +7,15 @@
   import Checkout from "./pages/Checkout.svelte";
   import Home from "./pages/Home.svelte";
   // router
-  import { Router, Route, Link } from "svelte-routing";
+  import { Router, Route, link} from "svelte-routing";
   // components
   import Navbar from "./components/Navbar/Navbar.svelte";
   import Sidebar from "./components/Navbar/Sidebar.svelte";
   import Cart from "./components/Cart/Cart.svelte";
   //   global store
   import globalStore from "./stores/globalStore";
-  console.log(globalStore);
-  console.log($globalStore);
+  //console.log(globalStore);
+  //console.log($globalStore);
 </script>
 
 <Router>
