@@ -20,7 +20,10 @@
     let user;
     if (isMember){
         loginUser();
-    }else{registerUser();}
+    }
+    else{
+      registerUser();
+    }
   }
 </script>
 
@@ -51,12 +54,14 @@
     {/if}
     {#if isEmpty}
       <p class="form-empty">Please fill all fields</p>
+      {/if}
       <button
-        class="btn btn-block btn-primary"
-        type="button"
-        disabled={isEmpty}
-        class:disabled={isEmpty}>submit</button
-      >
+      class="btn btn-block btn-primary"
+      type="submit"
+      disabled={isEmpty}
+      class:disabled={isEmpty}>submit</button
+    >
+    {#if isMember}
       <p class="register-link">
         Need to register?
         <button type="button" on:click={toggleMember}>click here</button>
