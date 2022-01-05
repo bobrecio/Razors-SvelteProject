@@ -1,13 +1,27 @@
 <script>
+  import loginUser from "../strapi/loginUser";
+  import registerUser from "../strapi/registerUser";
   let email = "";
   let password = "";
   let username = "default username";
   let isMember = true;
-  $: isEmpty = !name || !password || !username;
-
-  function toggleMember() {}
-
-  async function handleSubmit() {}
+  $: isEmpty = !email || !password || !username;
+  // toggle member
+  function toggleMember() {
+    isMember = !isMember;
+    if (!isMember) {
+      username = "";
+    } else {
+      username = "default username";
+    }
+  }
+  // handle submit
+  async function handleSubmit() {
+    let user;
+    if (isMember){
+        loginUser();
+    }else{registerUser();}
+  }
 </script>
 
 <section class="form">
@@ -15,23 +29,23 @@
     {#if isMember}sign in{:else}register{/if}
   </h2>
   <form class="login-form" on:submit|preventDefault={handleSubmit}>
-    <!-- single input -->
+    <!-- email input -->
     <div class="form-control">
-      <label for="email" />
+      <label for="email">email</label>
       <input type="email" id="email" bind:value={email} />
     </div>
     <!-- end of single input -->
-    <!-- single input -->
+    <!-- password input -->
     <div class="form-control">
-      <label for="password" />
+      <label for="password">password</label>
       <input type="password" id="password" bind:value={password} />
     </div>
     <!-- end of single input -->
     {#if !isMember}
-      <!-- single input -->
+      <!-- username input -->
       <div class="form-control">
-        <label for="username" />
-        <input type="username" id="username" bind:value={username} />
+        <label for="username">username</label>
+        <input type="text" id="username" bind:value={username} />
       </div>
       <!-- end of single input -->
     {/if}
@@ -44,9 +58,8 @@
         class:disabled={isEmpty}>submit</button
       >
       <p class="register-link">
-        Need to register?<button type="button" on:click={toggleMember()}
-          >click here</button
-        >
+        Need to register?
+        <button type="button" on:click={toggleMember}>click here</button>
       </p>
     {:else}
       <p class="register-link">
