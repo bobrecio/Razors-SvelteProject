@@ -4,7 +4,7 @@
   let email = "";
   let password = "";
   let username = "default username";
-  let isMember = true;
+  let isMember = false;
   $: isEmpty = !email || !password || !username;
   // toggle member
   function toggleMember() {

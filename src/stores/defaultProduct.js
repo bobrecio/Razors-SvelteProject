@@ -31,7 +31,6 @@ function flattenProducts(data){
 }
 // featured stores
 export const featuredStore = derived(store, $featured => {
-    //console.log($featured);
     return $featured.filter((item) => item.featured === true);
 })
 export default store;

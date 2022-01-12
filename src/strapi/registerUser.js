@@ -17,6 +17,7 @@ async function registerUser({
     if (response) {
         // setup user
     }
+    
     return response;
 }
 export default registerUser
